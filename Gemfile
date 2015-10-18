@@ -35,4 +35,9 @@ group :production do
   gem 'puma'
 end
 
+# for security
 gem 'figaro'
+
+# image upload to amazon with paperclip
+gem 'aws-sdk', '< 2.0'
+gem 'paperclip'
