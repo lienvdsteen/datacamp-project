@@ -1,11 +1,9 @@
 <nav class="navbar-datacamp">
   <div class="container navbar-datacamp-container">
-    <a href="">
+    <%= link_to uploads_path do %>
       <%= image_tag "logo.png" %>
-    </a>
-
+    <% end %>
     <div class="navbar-datacamp-pusher"></div>
-
     <%= link_to "Upload Image", new_upload_path, class: "navbar-datacamp-item navbar-datacamp-button btn" %>
   </div>
 </nav>
