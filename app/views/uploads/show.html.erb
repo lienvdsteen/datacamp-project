@@ -1,5 +1,18 @@
 <div class="upload-image">
-  <%= image_tag @upload.image.url(:medium) %>
+  <div class="upload-image-details">
+    The URL to this image is:
+     <%= link_to image_url(filename: @upload.image_file_name), image_path(filename: @upload.image_file_name) %>
+  </div>
+  <div class="upload-image-content row">
+    <div class="col-sm-8">
+      <%= image_tag @upload.image.url(:medium) %>
+    </div>
+    <div class="col-sm-4">
+      This image has been visited <%= pluralize @upload.upload_requests.count, 'times' %>
+    </div>
+    </div>
+  </div>
+
   <div id="map" class="upload-image-map" style="min-height: 300px;"></div>
 </div>
 

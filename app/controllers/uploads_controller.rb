@@ -4,7 +4,7 @@ class UploadsController < ApplicationController
   end
 
   def show
-    @upload = Upload.find(params[:id])
+    @upload = Upload.includes(:upload_requests).find(params[:id])
     @upload.upload_requests.create(ip_address: remote_ip)
     @markers = Gmaps4rails.build_markers(@upload.upload_requests) do |upload_request, marker|
       marker.lat upload_request.latitude unless upload_request.latitude.nil?

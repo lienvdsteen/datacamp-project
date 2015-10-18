@@ -2,4 +2,23 @@
   margin-top: 10px;
   justify-content: center;
   text-align: center;
+  &-details {
+    background-color: $brand-color;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: 1px solid $brand-color-light;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: white;
+    a, a:hover {
+      color: white;
+    }
+  }
 }
