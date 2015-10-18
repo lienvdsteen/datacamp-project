@@ -26,6 +26,7 @@ class UploadsController < ApplicationController
 
   def by_filename
     @upload = Upload.find_by(image_file_name: "#{params[:filename]}.#{params[:format]}")
+    render_404 if @upload.nil?
     redirect_to upload_path(@upload)
   end
 
