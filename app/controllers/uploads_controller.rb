@@ -5,6 +5,7 @@ class UploadsController < ApplicationController
 
   def show
     @upload = Upload.includes(:upload_requests).find(params[:id])
+    render_404 if @upload.nil?
     @upload.upload_requests.create(ip_address: remote_ip)
     @markers = create_markers(@upload.upload_requests.geocoded)
   end
