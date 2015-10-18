@@ -4,6 +4,7 @@ class UploadsController < ApplicationController
 
   def show
     @upload = Upload.find(params[:id])
+    @upload.upload_requests.create(ip_address: remote_ip)
   end
 
   def new
