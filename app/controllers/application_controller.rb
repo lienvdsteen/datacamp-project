@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
       marker.lng res.longitude unless res.longitude.nil?
     end
   end
+
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
 end
