@@ -1,6 +1,7 @@
-<%= image_tag @upload.image.url(:medium) %>
-
-<div id="map" style="min-height: 300px;"></div>
+<div class="upload-image">
+  <%= image_tag @upload.image.url(:medium) %>
+  <div id="map" class="upload-image-map" style="min-height: 300px;"></div>
+</div>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>

@@ -1,5 +1,36 @@
-<%= form_for(@upload, html: { multipart: true }) do |f| %>
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-  <%= f.button "Upload" %>
+<div class="upload-image upload-image-form container">
+  <%= form_for(@upload, html: { multipart: true }) do |f| %>
+    <div class="form-group">
+      <div id="kv-avatar-errors" class="center-block" style="width:800px;display:none"></div>
+      <div class="kv-avatar center-block" style="width:200px">
+        <%= f.file_field :image, class: "file-loading", id: 'avatar' %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.button "Upload", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    var defaultImage = '<%= image_tag "logo.png", class: "player-profile-form-avatar" %>';
+
+    $("#avatar").fileinput({
+      overwriteInitial: true,
+      maxFileSize: 1500,
+      showClose: false,
+      showCaption: false,
+      browseLabel: '',
+      removeLabel: '',
+      browseIcon: '<i class="glyphicon glyphicon-folder-open"></i>',
+      removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+      removeTitle: 'Cancel or reset changes',
+      elErrorContainer: '#kv-avatar-errors',
+      msgErrorClass: 'alert alert-block alert-danger',
+      defaultPreviewContent: defaultImage,
+      layoutTemplates: {main2: '{preview} '  + ' {remove} {browse}'},
+      allowedFileExtensions: ["jpg", "png", "gif"]
+    });
+  <% end %>
 <% end %>

@@ -46,3 +46,8 @@ gem 'paperclip'
 gem 'underscore-rails' #geocoder depends on underscore
 gem "geocoder"
 gem 'gmaps4rails'
+
+# front-end (let's make it look nice)
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'font-awesome-sass', '~> 4.2.0'
+gem "autoprefixer-rails"
