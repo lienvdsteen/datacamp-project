@@ -41,3 +41,8 @@ gem 'figaro'
 # image upload to amazon with paperclip
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
+
+# geocoder
+gem 'underscore-rails' #geocoder depends on underscore
+gem "geocoder"
+gem 'gmaps4rails'
