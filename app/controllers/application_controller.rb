@@ -11,4 +11,11 @@ class ApplicationController < ActionController::Base
       request.remote_ip
     end
   end
+
+  def create_markers(resource)
+    markers = Gmaps4rails.build_markers(resource.geocoded) do |res, marker|
+      marker.lat res.latitude unless res.latitude.nil?
+      marker.lng res.longitude unless res.longitude.nil?
+    end
+  end
 end

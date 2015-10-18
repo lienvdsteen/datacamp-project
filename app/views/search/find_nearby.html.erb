@@ -1,0 +1,28 @@
+<div class="search-results">
+  <h1>Images uploaded nearby you:</h1>
+
+  <% if @uploads && @uploads.size > 0 %>
+    <div id="map" class="upload-image-map" style="min-height: 300px;"></div>
+    <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
+        $(document).on('ready', function() {
+          handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function(){
+            markers = handler.addMarkers(<%= raw @markers.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+          });
+        })
+      <% end %>
+    <% end %>
+
+    <div class="images-list">
+      <%= render 'shared/images_list', uploads: @uploads %>
+    </div>
+  <% else %>
+  <div class="search-results-none">
+    Sorry, nobody has uploaded a picture where you are!
+    <%= image_tag "http://www.gifdivision.com/uploads/4/6/0/3/46032175/028_-_wsmpayc.gif" %>
+  </div>
+  <% end %>
+</div>

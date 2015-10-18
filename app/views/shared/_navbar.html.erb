@@ -4,6 +4,9 @@
       <%= image_tag "logo.png" %>
     <% end %>
     <div class="navbar-datacamp-pusher"></div>
+    <div class="navbar-datacamp-item">
+      <%= link_to "Find Nearby Images", search_path %>
+    </div>
     <%= link_to "Upload Image", new_upload_path, class: "navbar-datacamp-item navbar-datacamp-button btn" %>
   </div>
 </nav>

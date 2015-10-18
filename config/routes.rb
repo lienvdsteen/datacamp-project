@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   resources :uploads, only: [:index, :show, :new, :create]
   get '/image/:filename', to: 'uploads#by_filename', as: 'image'
+
+  get 'search/find_nearby', as: 'search'
 end

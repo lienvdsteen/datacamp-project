@@ -6,4 +6,7 @@ class Upload < ActiveRecord::Base
 
   validates_attachment_content_type :image,
     content_type: /\Aimage\/.*\z/
+
+  geocoded_by :ip_address
+  after_validation :geocode
 end

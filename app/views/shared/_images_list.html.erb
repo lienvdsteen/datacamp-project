@@ -1,0 +1,8 @@
+<% uploads.each do |upload| %>
+  <div class="uploads-all-single">
+    <%= link_to upload_path(upload) do %>
+      <%= image_tag upload.image.url(:thumb) %>
+      <%= upload.image_file_name %>
+    <% end %>
+  </div>
+<% end %>
