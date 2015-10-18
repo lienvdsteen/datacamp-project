@@ -24,9 +24,18 @@ class UploadsController < ApplicationController
     end
   end
 
+  def by_filename
+    @upload = Upload.find_by(image_file_name: "#{params[:filename]}.#{params[:format]}")
+    redirect_to upload_path(@upload)
+  end
+
   private
 
   def upload_params
     params.require(:upload).permit(:image)
+  end
+
+  def file_name
+    "#{params[:filename]}.#{params[:format]}"
   end
 end
